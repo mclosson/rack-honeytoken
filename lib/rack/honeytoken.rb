@@ -15,16 +15,10 @@ module Rack
       exposed_tokens = tokens_present_in?(response)
 
       if exposed_tokens.any?
-        if custom_strategy
-          status, headers, response = custom_strategy.call(
-            [status, headers, response],
-            exposed_tokens
-          )
-        else
-          status = 403
-          response = ''
-          exposed_tokens.each { |token| log(token) }
-        end
+        status, headers, response = strategy.call(
+          [status, headers, response],
+          exposed_tokens
+        )
       end
 
       [status, headers, response]
@@ -33,6 +27,20 @@ module Rack
     private
 
     attr_accessor :app, :custom_strategy, :logger, :tokens
+
+    def default_strategy
+      Proc.new {|tuple, exposed_tokens|
+        status = 403
+        headers = tuple[1]
+        response = ''
+        exposed_tokens.each { |token| log(token) }
+        [status, headers, response]
+      }
+    end
+
+    def strategy
+      custom_strategy || default_strategy
+    end
 
     def tokens_present_in?(response)
       pattern = tokens.map { |token| Regexp.escape(token) }.join('|')
