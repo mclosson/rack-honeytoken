@@ -9,12 +9,17 @@ intended logic of an SQL query is bypassed and the HTTP request is used to
 attempt to download private data instead for example the users or accounts
 table and associated password hashes.
 
+## Status
+
+***Warning:*** This gem is currently under development and while functional,
+it is not yet recommended be used on production systems.
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rack-honeytoken'
+gem 'rack-honeytoken', git: 'https://github.com/mclosson/rack-honeytoken.git'
 ```
 
 And then execute:
