@@ -1,0 +1,27 @@
+PATH
+  remote: .
+  specs:
+    rack-honeytoken (0.1.0)
+      rack
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.8.3)
+    rack (1.6.4)
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rake (10.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.10)
+  minitest
+  rack-honeytoken!
+  rack-test
+  rake (~> 10.0)
+
+BUNDLED WITH
+   1.10.6
