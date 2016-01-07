@@ -19,7 +19,7 @@ it is not yet recommended be used on production systems.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rack-honeytoken', git: 'https://github.com/mclosson/rack-honeytoken.git'
+gem 'rack-honeytoken', '0.0.1', git: 'https://github.com/mclosson/rack-honeytoken.git'
 ```
 
 And then execute:
