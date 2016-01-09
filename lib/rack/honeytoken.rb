@@ -32,7 +32,7 @@ module Rack
       Proc.new {|tuple, exposed_tokens|
         status = 403
         headers = tuple[1]
-        response = ''
+        response = []
         exposed_tokens.each { |token| log(token) }
         [status, headers, response]
       }
