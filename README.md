@@ -49,7 +49,7 @@ config/application.rb
 
 ```ruby
 config.middleware.use(
-  "HoneyToken",
+  Rack::Honeytoken,
   tokens: honey_tokens,
   logger: Proc.new { |token| Rails.logger.warn("Honey token exposed: #{token}") }
 )
@@ -61,7 +61,7 @@ array.
 
 ```ruby
 config.middleware.use(
-  'HoneyToken',
+  Rack::Honeytoken,
   tokens: honey_tokens
   custom_strategy: Proc.new { |tuple, exposed_tokens|
     exposed_tokens.each { |token| Rails.logger.warn("Honey Token Exposed: #{token}") }
