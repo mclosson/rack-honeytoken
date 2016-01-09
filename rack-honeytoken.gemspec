@@ -6,7 +6,7 @@ require 'rack/honeytoken/version'
 Gem::Specification.new do |spec|
   spec.name          = "rack-honeytoken"
   spec.version       = Rack::Honeytoken::VERSION
-  spec.license       = "BSD-2-Clause"
+  spec.licenses      = ["BSD-2-Clause"]
   spec.authors       = ["Matthew Closson"]
   spec.email         = ["matthew.closson@gmail.com"]
 
